@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,7 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject targetPrefab;
     private GameObject[] _targetPool;
     public int numberOfTargets;
-    public int numberOfHitTargets;
+    public int numberOfHitTargets = 0;
 
     // Quantitative data
     private float _timeToComplete = 0;

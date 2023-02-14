@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -8,24 +6,20 @@ public class Target : MonoBehaviour
     
     [SerializeField] private Vector3 position;
     
-    
-    // Start is called before the first frame update
     void Start()
     {
-        
+        position = transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.CompareTag("Bullet"))
+        {
+            return;
+        }
         
-    }
-
-    private void OnHit()
-    {
         Debug.Log("Hit Target!");
         gameObject.SetActive(false);
         _gameManager.numberOfHitTargets++;
     }
-    
 }
