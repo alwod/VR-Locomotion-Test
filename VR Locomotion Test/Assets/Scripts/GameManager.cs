@@ -1,8 +1,12 @@
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    
+    // The Player
+    [SerializeField] private GameObject _player;
 
     // Target-related variables
     [SerializeField] private GameObject targetPrefab;
@@ -11,11 +15,12 @@ public class GameManager : MonoBehaviour
     public int numberOfHitTargets = 0;
 
     // Quantitative data
-    //TODO change _timeToComplete to instead represent the total time elapsed.
-    private float _timeToComplete;
+    private float _totalTime;
     private float[] _timeBetweenHits;
     //private float _averageMovementSpeed;
     private bool _isStarted;
+    // Used for measuring time between target hits
+    private float _previousHitTime, _currentHitTime;
 
     private void Awake()
     {
@@ -30,7 +35,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Set up
-        _timeToComplete = 0;
+        _totalTime = 0;
         _isStarted = false;
 
         _targetPool = new GameObject[numberOfTargets];
@@ -57,7 +62,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         
-        _timeToComplete += Time.deltaTime;
+        _totalTime += Time.deltaTime;
+        
+        
+        
+        
         
         if (numberOfHitTargets == numberOfTargets)
         {
@@ -67,21 +76,33 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void StartTest()
+    public void StartTest()
     {
         _isStarted = true;
     }
 
     public void RecordTimeBetweenHits()
     {
-        
+        numberOfHitTargets++;
+
+        // For the first time through, only set the 'previous' time
+        if (numberOfHitTargets <= 1)
+        {
+            _previousHitTime = _totalTime;
+            return;
+        }
+
+        _currentHitTime = _totalTime;
+        _timeBetweenHits[numberOfHitTargets--] = _currentHitTime - _previousHitTime;
     }
 
-    private void EndTest()
+    public void EndTest()
     {
         _isStarted = false;
         
-        Debug.Log(_timeToComplete);
+        var averageTime = _timeBetweenHits.Sum() / _timeBetweenHits.Length;
+        Debug.Log(averageTime);
+        Debug.Log(_totalTime);
     }
 
 }
