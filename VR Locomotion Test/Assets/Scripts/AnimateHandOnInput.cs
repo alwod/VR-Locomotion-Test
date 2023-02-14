@@ -8,7 +8,7 @@ public class AnimateHandOnInput : MonoBehaviour
 
     public Animator handAnimator;
     
-    void Update()
+    private void Update()
     {
         var triggerValue = pinchAnimationAction.action.ReadValue<float>();
         handAnimator.SetFloat("Trigger", triggerValue);

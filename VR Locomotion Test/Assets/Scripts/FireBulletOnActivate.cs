@@ -7,13 +7,13 @@ public class FireBulletOnActivate : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fireSpeed = 20;
     
-    void Start()
+    private void Start()
     {
         var grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(FireBullet);
     }
 
-    public void FireBullet(ActivateEventArgs arg)
+    private void FireBullet(ActivateEventArgs arg)
     {
         var spawnedBullet = Instantiate(bullet);
         spawnedBullet.transform.position = spawnPoint.position;

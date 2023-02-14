@@ -2135,9 +2135,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 1849169569}
   rightHand: {fileID: 1274120743}
-  mainCamera: {fileID: 1025276275}
-  speed: 70
-  handSpeed: 1
+  speedBoost: 1
+  leftActivate:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6bae2600-508e-4cb1-8750-bc5464e00bce
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightActivate:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 92e9e402-721b-4cf6-8ae2-5853db48f515
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1849169569
 GameObject:
   m_ObjectHideFlags: 0
