@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     private bool _isStarted;
     // Used for measuring time between target hits
     private float _previousHitTime, _currentHitTime;
+    
+    // File path for storing quantitative data as a csv file
+    private string _fileName = "";
 
     private void Awake()
     {
@@ -47,13 +51,12 @@ public class GameManager : MonoBehaviour
 
             _timeBetweenHits[i] = 0.0f;
         }
+
+
+        // Set the file path to store data
+        _fileName = Application.dataPath + "/Data/data.csv";
     }
-    
-    private void Start()
-    {
-        
-    }
-    
+
     private void Update()
     {
         // Don't do anything until the test has started
@@ -63,17 +66,12 @@ public class GameManager : MonoBehaviour
         }
         
         _totalTime += Time.deltaTime;
-        
-        
-        
-        
-        
+
         if (numberOfHitTargets == numberOfTargets)
         {
             Debug.Log("Hit all of the targets!");
             numberOfHitTargets = 0;
         }
-        
     }
 
     public void StartTest()
@@ -96,13 +94,26 @@ public class GameManager : MonoBehaviour
         _timeBetweenHits[numberOfHitTargets--] = _currentHitTime - _previousHitTime;
     }
 
+    private void StoreData(float averageTime)
+    {
+        TextWriter textWriter = new StreamWriter(_fileName, false);
+        // Headings
+        textWriter.WriteLine("Average time between target hits, Total time to complete");
+        textWriter.Close();
+        
+        // Actual data
+        textWriter = new StreamWriter(_fileName, true);
+        textWriter.WriteLine(averageTime + ", " + _totalTime);
+        textWriter.Close();
+    }
+    
     public void EndTest()
     {
         _isStarted = false;
         
         var averageTime = _timeBetweenHits.Sum() / _timeBetweenHits.Length;
+        StoreData(averageTime);
         Debug.Log(averageTime);
         Debug.Log(_totalTime);
     }
-
 }
