@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     public int numberOfHitTargets = 0;
 
     // Quantitative data
+    //TODO change _timeToComplete to instead represent the total time elapsed.
     private float _timeToComplete;
-    private float _timeBetweenHits;
-    private float _averageMovementSpeed;
-    private bool _isStarted = false;
+    private float[] _timeBetweenHits;
+    //private float _averageMovementSpeed;
+    private bool _isStarted;
 
     private void Awake()
     {
@@ -30,14 +31,16 @@ public class GameManager : MonoBehaviour
 
         // Set up
         _timeToComplete = 0;
-        _timeBetweenHits = 0;
-        _averageMovementSpeed = 0;
-        
+        _isStarted = false;
+
         _targetPool = new GameObject[numberOfTargets];
-        for (var i = 0; i < _targetPool.Length; i++)
+        _timeBetweenHits = new float[numberOfTargets];
+        for (var i = 0; i < numberOfTargets; i++)
         {
             _targetPool[i] = Instantiate(targetPrefab);
             _targetPool[i].SetActive(false);
+
+            _timeBetweenHits[i] = 0.0f;
         }
     }
     
@@ -48,11 +51,13 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        // If the test has started, increase the _timeToComplete variable until test is finished.
-        if (_isStarted)
+        // Don't do anything until the test has started
+        if (!_isStarted)
         {
-            _timeToComplete += Time.deltaTime;
+            return;
         }
+        
+        _timeToComplete += Time.deltaTime;
         
         if (numberOfHitTargets == numberOfTargets)
         {
@@ -67,7 +72,7 @@ public class GameManager : MonoBehaviour
         _isStarted = true;
     }
 
-    private void RecordTimeBetweenHits()
+    public void RecordTimeBetweenHits()
     {
         
     }
@@ -75,6 +80,8 @@ public class GameManager : MonoBehaviour
     private void EndTest()
     {
         _isStarted = false;
+        
+        Debug.Log(_timeToComplete);
     }
 
 }
