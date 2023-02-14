@@ -6,8 +6,7 @@ public class FireBulletOnActivate : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fireSpeed = 20;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         var grabbable = GetComponent<XRGrabInteractable>();

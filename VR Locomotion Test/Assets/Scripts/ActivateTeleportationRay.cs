@@ -11,8 +11,7 @@ public class ActivateTeleportationRay : MonoBehaviour
 
     public InputActionProperty leftCancel;
     public InputActionProperty rightCancel;
-
-    // Update is called once per frame
+    
     void Update()
     {
         leftTeleportation.SetActive(leftCancel.action.ReadValue<float>() == 0 && leftActivate.action.ReadValue<float>() > 0.1f);

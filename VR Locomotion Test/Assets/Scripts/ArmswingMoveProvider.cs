@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ArmswingMoveProvider : MonoBehaviour
@@ -25,7 +23,6 @@ public class ArmswingMoveProvider : MonoBehaviour
     [SerializeField] private float handSpeed = 1;
     
     
-    // Start is called before the first frame update
     void Start()
     {
         _playerPositionPreviousFrame = transform.position;
@@ -33,8 +30,7 @@ public class ArmswingMoveProvider : MonoBehaviour
         _positionPreviousFrameLeftHand = leftHand.transform.position;
         _positionPreviousFrameRightHand = rightHand.transform.position;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         // Get forward direction from the center eye camera and set it to the forward direction object
