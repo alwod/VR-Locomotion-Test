@@ -18,15 +18,14 @@ public class GameManager : MonoBehaviour
     public int numberOfTargets;
     public int numberOfHitTargets = 0;
 
+    private bool _isStarted;
+    
     // Quantitative data
     private float _totalTime;
     private float[] _timeBetweenHits;
-    //private float _averageMovementSpeed;
-    private bool _isStarted;
+    private Stack<float> _movementSpeeds;
     // Used for measuring time between target hits
     private float _previousHitTime, _currentHitTime;
-    // Stores the average movement speed
-    private Stack<float> _movementSpeeds;
 
     // File path for storing quantitative data as a csv file
     private string _fileName = "";
@@ -110,7 +109,7 @@ public class GameManager : MonoBehaviour
         _timeBetweenHits[numberOfHitTargets--] = _currentHitTime - _previousHitTime;
     }
 
-    private void StoreData(float averageTime)
+    private void StoreData(float averageTime, float averageSpeed)
     {
         TextWriter textWriter = new StreamWriter(_fileName, false);
         // Headings
@@ -123,7 +122,8 @@ public class GameManager : MonoBehaviour
         // Actual data
         textWriter = new StreamWriter(_fileName, true);
         textWriter.WriteLine(averageTime + ", " + 
-                             _totalTime);
+                             _totalTime + ", " +
+                             averageSpeed);
         textWriter.Close();
     }
     
@@ -132,7 +132,9 @@ public class GameManager : MonoBehaviour
         _isStarted = false;
         
         var averageTime = _timeBetweenHits.Sum() / _timeBetweenHits.Length;
-        StoreData(averageTime);
+        var averageSpeed = _movementSpeeds.Sum() / _movementSpeeds.Count;
+        
+        StoreData(averageTime, averageSpeed);
         Debug.Log(averageTime);
         Debug.Log(_totalTime);
     }
