@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.IO;
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     
     // The Player
     [SerializeField] private GameObject _player;
+    // Previous position of the player
+    private Vector3 _previousPlayerPosition;
 
     // Target-related variables
     [SerializeField] private GameObject targetPrefab;
@@ -22,7 +25,9 @@ public class GameManager : MonoBehaviour
     private bool _isStarted;
     // Used for measuring time between target hits
     private float _previousHitTime, _currentHitTime;
-    
+    // Stores the average movement speed
+    private Stack<float> _movementSpeeds;
+
     // File path for storing quantitative data as a csv file
     private string _fileName = "";
 
@@ -52,6 +57,7 @@ public class GameManager : MonoBehaviour
             _timeBetweenHits[i] = 0.0f;
         }
 
+        _previousPlayerPosition = _player.transform.position;
 
         // Set the file path to store data
         _fileName = Application.dataPath + "/Data/data.csv";
@@ -66,6 +72,16 @@ public class GameManager : MonoBehaviour
         }
         
         _totalTime += Time.deltaTime;
+        
+        // Calculate speed of the player
+        var position = _player.transform.position;
+        var speed = (position - _previousPlayerPosition).magnitude / Time.deltaTime;
+        _previousPlayerPosition = position;
+        // Dont bother storing minuscule speeds
+        if (speed > 1.0f)
+        {
+            _movementSpeeds.Push(speed);
+        }
 
         if (numberOfHitTargets == numberOfTargets)
         {
@@ -98,12 +114,16 @@ public class GameManager : MonoBehaviour
     {
         TextWriter textWriter = new StreamWriter(_fileName, false);
         // Headings
-        textWriter.WriteLine("Average time between target hits, Total time to complete");
+        textWriter.WriteLine("Average time between target hits, " +
+                             "Total time to complete, " +
+                             "Average movement speed, " +
+                             "Accuracy");
         textWriter.Close();
         
         // Actual data
         textWriter = new StreamWriter(_fileName, true);
-        textWriter.WriteLine(averageTime + ", " + _totalTime);
+        textWriter.WriteLine(averageTime + ", " + 
+                             _totalTime);
         textWriter.Close();
     }
     
