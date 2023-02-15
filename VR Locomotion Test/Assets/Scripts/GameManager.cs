@@ -130,7 +130,8 @@ public class GameManager : MonoBehaviour
         textWriter = new StreamWriter(_fileName, true);
         textWriter.WriteLine(averageTime + ", " + 
                              _totalTime + ", " +
-                             averageSpeed);
+                             averageSpeed + ", " +
+                             _numberOfAccurateHits);
         textWriter.Close();
     }
     

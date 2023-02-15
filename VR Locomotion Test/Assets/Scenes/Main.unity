@@ -1176,10 +1176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89d117d9136b0d4ea6c628fc0f95e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1760596909}
+  player: {fileID: 0}
   targetPrefab: {fileID: 213178192364493857, guid: cde39bd9fee0def46b18de5ca8ca59c1, type: 3}
   numberOfTargets: 1
-  numberOfHitTargets: 0
 --- !u!4 &667050518
 Transform:
   m_ObjectHideFlags: 0
