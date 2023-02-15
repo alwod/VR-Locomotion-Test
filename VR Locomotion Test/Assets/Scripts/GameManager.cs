@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     // The Player
-    [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject player;
     // Previous position of the player
     private Vector3 _previousPlayerPosition;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject targetPrefab;
     private GameObject[] _targetPool;
     public int numberOfTargets;
-    public int numberOfHitTargets = 0;
+    private int _numberOfHitTargets;
 
     private bool _isStarted;
     
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private Stack<float> _movementSpeeds;
     // Used for measuring time between target hits
     private float _previousHitTime, _currentHitTime;
+    private int _numberOfAccurateHits;
 
     // File path for storing quantitative data as a csv file
     private string _fileName = "";
@@ -56,7 +57,9 @@ public class GameManager : MonoBehaviour
             _timeBetweenHits[i] = 0.0f;
         }
 
-        _previousPlayerPosition = _player.transform.position;
+        _numberOfHitTargets = 0;
+
+        _previousPlayerPosition = player.transform.position;
 
         // Set the file path to store data
         _fileName = Application.dataPath + "/Data/data.csv";
@@ -69,11 +72,11 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        
+
         _totalTime += Time.deltaTime;
         
         // Calculate speed of the player
-        var position = _player.transform.position;
+        var position = player.transform.position;
         var speed = (position - _previousPlayerPosition).magnitude / Time.deltaTime;
         _previousPlayerPosition = position;
         // Dont bother storing minuscule speeds
@@ -82,10 +85,10 @@ public class GameManager : MonoBehaviour
             _movementSpeeds.Push(speed);
         }
 
-        if (numberOfHitTargets == numberOfTargets)
+        if (_numberOfHitTargets == numberOfTargets)
         {
             Debug.Log("Hit all of the targets!");
-            numberOfHitTargets = 0;
+            _numberOfHitTargets = 0;
         }
     }
 
@@ -94,19 +97,23 @@ public class GameManager : MonoBehaviour
         _isStarted = true;
     }
 
-    public void RecordTimeBetweenHits()
+    public void RecordTimeBetweenHits(bool wasAccurate)
     {
-        numberOfHitTargets++;
+        _numberOfHitTargets++;
+        if (wasAccurate)
+        {
+            _numberOfAccurateHits++;
+        }
 
         // For the first time through, only set the 'previous' time
-        if (numberOfHitTargets <= 1)
+        if (_numberOfHitTargets <= 1)
         {
             _previousHitTime = _totalTime;
             return;
         }
 
         _currentHitTime = _totalTime;
-        _timeBetweenHits[numberOfHitTargets--] = _currentHitTime - _previousHitTime;
+        _timeBetweenHits[_numberOfHitTargets--] = _currentHitTime - _previousHitTime;
     }
 
     private void StoreData(float averageTime, float averageSpeed)

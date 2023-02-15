@@ -11,6 +11,6 @@ public class Target : MonoBehaviour
         
         //Debug.Log("Hit Target!");
         gameObject.SetActive(false);
-        GameManager.instance.RecordTimeBetweenHits();
+        GameManager.instance.RecordTimeBetweenHits(false);
     }
 }
