@@ -74,16 +74,6 @@ public class GameManager : MonoBehaviour
         }
 
         _totalTime += Time.deltaTime;
-        
-        // Calculate speed of the player
-        var position = player.transform.position;
-        var speed = (position - _previousPlayerPosition).magnitude / Time.deltaTime;
-        _previousPlayerPosition = position;
-        // Dont bother storing minuscule speeds
-        if (speed > 1.0f)
-        {
-            _movementSpeeds.Push(speed);
-        }
 
         if (_numberOfHitTargets == numberOfTargets)
         {
@@ -114,6 +104,19 @@ public class GameManager : MonoBehaviour
 
         _currentHitTime = _totalTime;
         _timeBetweenHits[_numberOfHitTargets--] = _currentHitTime - _previousHitTime;
+    }
+
+    public void CalculatePlayerSpeed()
+    {
+        // Calculate speed of the player
+        var position = player.transform.position;
+        var speed = (position - _previousPlayerPosition).magnitude / Time.deltaTime;
+        _previousPlayerPosition = position;
+        // Dont bother storing minuscule speeds
+        if (speed > 1.0f)
+        {
+            _movementSpeeds.Push(speed);
+        }
     }
 
     private void StoreData(float averageTime, float averageSpeed)

@@ -69,6 +69,9 @@ public class ArmswingMoveProvider : MonoBehaviour
         // Set player position previous frame
         _playerPositionPreviousFrame = _playerPositionCurrentFrame;
         
+        // Ask the Game Manager to calculate the player's speed
+        GameManager.instance.CalculatePlayerSpeed();
+        
         
         
         
