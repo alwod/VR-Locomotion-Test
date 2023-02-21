@@ -68,13 +68,10 @@ public class ArmswingMoveProvider : MonoBehaviour
         _positionPreviousFrameRightHand = _positionCurrentFrameRightHand;
         // Set player position previous frame
         _playerPositionPreviousFrame = _playerPositionCurrentFrame;
-        
-        // Ask the Game Manager to calculate the player's speed
-        GameManager.instance.CalculatePlayerSpeed();
-        
-        
-        
-        
+
+
+
+
         // // Get forward direction from the center eye camera and set it to the forward direction object
         // var yRotation = mainCamera.transform.eulerAngles.y;
         // //_forwardDirection.transform.eulerAngles = new Vector3(0, yRotation, 0);
