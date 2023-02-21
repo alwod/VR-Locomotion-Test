@@ -3,10 +3,10 @@ using UnityEngine.InputSystem;
 
 public class AnimateHandOnInput : MonoBehaviour
 {
-    public InputActionProperty pinchAnimationAction;
-    public InputActionProperty gripAnimationAction;
+    [SerializeField] private InputActionProperty pinchAnimationAction;
+    [SerializeField] private InputActionProperty gripAnimationAction;
 
-    public Animator handAnimator;
+    [SerializeField] private Animator handAnimator;
     
     private void Update()
     {
