@@ -70,15 +70,28 @@ public class GameManager : MonoBehaviour
         // Don't do anything until the test has started
         if (!_isStarted)
         {
+            // Start test is space is pressed
+            if (Input.GetKey(KeyCode.Space))
+            {
+                StartTest();
+            }
             return;
         }
 
         _totalTime += Time.deltaTime;
+        
+        CalculatePlayerSpeed();
 
         if (_numberOfHitTargets == numberOfTargets)
         {
             Debug.Log("Hit all of the targets!");
             _numberOfHitTargets = 0;
+        }
+        
+        // If the test is started and space is pressed, end the test
+        if (Input.GetKey(KeyCode.Space))
+        {
+            EndTest();
         }
     }
 
