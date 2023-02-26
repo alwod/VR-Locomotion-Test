@@ -50,7 +50,6 @@ public class ArmswingMoveProvider : MonoBehaviour
         
         if (leftActivate.action.triggered)
         {
-            Debug.Log("Got here!");
             leftHandSpeed = LeftHandSwing(playerDistanceMoved);
         }
         if (rightActivate.action.triggered)
