@@ -19,6 +19,8 @@ public class ArmswingMoveProvider : MonoBehaviour
     
     private Vector3 _playerPositionPreviousFrame;
     private Vector3 _playerPositionCurrentFrame;
+
+    [SerializeField] private Transform playerCamera;
     
     // Speed
     [SerializeField] private float speedBoost = 1;
@@ -48,11 +50,11 @@ public class ArmswingMoveProvider : MonoBehaviour
         float leftHandSpeed = 0;
         float rightHandSpeed = 0;
         
-        if (leftActivate.action.triggered)
+        if (leftActivate.action.ReadValue<float>() > 0.1f)
         {
             leftHandSpeed = LeftHandSwing(playerDistanceMoved);
         }
-        if (rightActivate.action.triggered)
+        if (rightActivate.action.ReadValue<float>() > 0.1f)
         {
             rightHandSpeed = RightHandSwing(playerDistanceMoved);
         }
@@ -61,7 +63,12 @@ public class ArmswingMoveProvider : MonoBehaviour
         _handSpeed = leftHandSpeed + rightHandSpeed;
         
         // Move the player
-        transform.position += transform.forward * (_handSpeed * speedBoost * Time.deltaTime);
+        //transform.position += playerCamera.forward * (_handSpeed * speedBoost * Time.deltaTime);
+        var targetPosition = transform.position + playerCamera.forward;
+        transform.position =
+            Vector3.Lerp(transform.position, targetPosition, (_handSpeed * speedBoost * Time.deltaTime));
+        // Fix Y position
+        transform.position =  new Vector3(transform.position.x, _playerPositionCurrentFrame.y, transform.position.z);
         
         // Set previous position of hands for next frame
         _positionPreviousFrameLeftHand = _positionCurrentFrameLeftHand;
