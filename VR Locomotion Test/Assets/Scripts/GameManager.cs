@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTest()
     {
+        Debug.Log("Test Started!");
         _isStarted = true;
     }
 
@@ -140,6 +141,7 @@ public class GameManager : MonoBehaviour
     
     public void EndTest()
     {
+        Debug.Log("Test Ended!");
         _isStarted = false;
         
         var averageTime = _timeBetweenHits.Sum() / _timeBetweenHits.Length;

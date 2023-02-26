@@ -27,8 +27,8 @@ public class ArmswingMoveProvider : MonoBehaviour
     // Input actions to activate arm swinger
     public InputActionProperty leftActivate;
     public InputActionProperty rightActivate;
-    
-    
+
+
     private void Start()
     {
         _playerPositionPreviousFrame = transform.position;
@@ -48,11 +48,12 @@ public class ArmswingMoveProvider : MonoBehaviour
         float leftHandSpeed = 0;
         float rightHandSpeed = 0;
         
-        if (leftActivate.action.ReadValue<float>() > 0.1f)
+        if (leftActivate.action.triggered)
         {
+            Debug.Log("Got here!");
             leftHandSpeed = LeftHandSwing(playerDistanceMoved);
         }
-        if (rightActivate.action.ReadValue<float>() > 0.1f)
+        if (rightActivate.action.triggered)
         {
             rightHandSpeed = RightHandSwing(playerDistanceMoved);
         }
