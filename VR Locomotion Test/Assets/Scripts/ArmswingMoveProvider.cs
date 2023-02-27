@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class ArmswingMoveProvider : MonoBehaviour
 {
@@ -62,6 +61,7 @@ public class ArmswingMoveProvider : MonoBehaviour
         // Aggregate hand speed
         _handSpeed = leftHandSpeed + rightHandSpeed;
         
+        //TODO FIGURE OUT HOW TO STOP HAVING PLAYER MOVE THROUGH WALLS, MAYBE USE RIGIDBODY MOVEMENT INSTEAD?
         // Move the player
         //transform.position += playerCamera.forward * (_handSpeed * speedBoost * Time.deltaTime);
         var targetPosition = transform.position + playerCamera.forward;
