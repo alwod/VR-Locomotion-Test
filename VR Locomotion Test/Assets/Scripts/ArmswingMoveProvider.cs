@@ -28,6 +28,8 @@ public class ArmswingMoveProvider : MonoBehaviour
     // Input actions to activate arm swinger
     public InputActionProperty leftActivate;
     public InputActionProperty rightActivate;
+    
+    private Rigidbody _rigidbody;
 
 
     private void Start()
@@ -36,6 +38,12 @@ public class ArmswingMoveProvider : MonoBehaviour
 
         _positionPreviousFrameLeftHand = leftHand.transform.position;
         _positionPreviousFrameRightHand = rightHand.transform.position;
+        
+        _rigidbody = GetComponent<Rigidbody>();
+        // Stop rigid body from falling over
+        _rigidbody.freezeRotation = true;
+        // Set drag to stop sliding
+        _rigidbody.drag = 5;
     }
     
     private void Update()
@@ -69,6 +77,10 @@ public class ArmswingMoveProvider : MonoBehaviour
             Vector3.Lerp(transform.position, targetPosition, (_handSpeed * speedBoost * Time.deltaTime));
         // Fix Y position
         transform.position =  new Vector3(transform.position.x, _playerPositionCurrentFrame.y, transform.position.z);
+        
+        //_rigidbody.AddForce(playerCamera.forward * (_handSpeed * speedBoost * Time.deltaTime), ForceMode.Force);
+        
+        
         
         // Set previous position of hands for next frame
         _positionPreviousFrameLeftHand = _positionCurrentFrameLeftHand;
