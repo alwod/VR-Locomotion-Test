@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 9b4abae029b17cb439847a5b452c06c1
+  - enabled: 1
+    path: Assets/Scenes/Teleport Test.unity
+    guid: 7e9b3dff5d58e9e449df15fbbe45fd97
+  - enabled: 1
+    path: Assets/Scenes/Joystick Test.unity
+    guid: 80d9b1a4587734e45960c7c1a4909df7
+  - enabled: 1
+    path: Assets/Scenes/ArmSwinger Test.unity
+    guid: e406a85cafe61b44b9050dae035e8f24
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 449982a7c30deef4db93598842cd16a9, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 1031d45aebd4a4c4a8c1b28634f4a713, type: 2}

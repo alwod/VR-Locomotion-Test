@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Inspector
   m_RootView: {fileID: 10}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 113
+  controlID: 91
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 27
+  controlID: 125
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 112
+  controlID: 90
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 141
+  controlID: 70
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -396,13 +396,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/audio
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/audio
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mikha\Documents\GitHub\VR-Locomotion-Test\VR Locomotion
     Test
@@ -410,9 +410,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 70890000
-    m_LastClickedID: 35184
-    m_ExpandedIDs: 000000000063000002630000046300004a6300007089000000ca9a3b
+    m_SelectedIDs: 84630000
+    m_LastClickedID: 25476
+    m_ExpandedIDs: 00000000386300003a6300003c63000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,7 +440,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000006300000263000004630000
+    m_ExpandedIDs: 00000000386300003a6300003c630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -568,9 +568,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7e890000
-      m_LastClickedID: 0
-      m_ExpandedIDs: a2d8ffff2ed9ffff30d9ffffdcdbffffa2edffffe6f2ffff5af3ffff2efbffff08670000
+      m_SelectedIDs: 0e720000
+      m_LastClickedID: 29198
+      m_ExpandedIDs: f2ceffff3ad3ffff84dcffff30fbffff765f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -852,9 +852,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.128191, y: -3.9060469, z: 10.61132}
+    m_Target: {x: 8.856521, y: 2.7215188, z: -1.4918045}
     speed: 2
-    m_Value: {x: -4.128191, y: -3.9060469, z: 10.61132}
+    m_Value: {x: 8.856521, y: 2.7215188, z: -1.4918045}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -901,20 +901,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.46839756, y: -0.5310077, z: 0.51626414, w: -0.4817997}
+    m_Target: {x: 0.00017723581, y: -0.99986887, z: -0.011689742, w: -0.014153747}
     speed: 2
-    m_Value: {x: -0.46911386, y: -0.5302261, z: 0.5170536, w: -0.48109055}
+    m_Value: {x: 0.0001772292, y: -0.99983156, z: -0.011689306, w: -0.014153219}
   m_Size:
-    m_Target: 9.682831
+    m_Target: 2.2299128
     speed: 2
-    m_Value: 9.682831
+    m_Value: 2.2299128
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1
-    m_SpeedNormalized: 0.5
+    m_Speed: 1.0005
+    m_SpeedNormalized: 0.49999997
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
