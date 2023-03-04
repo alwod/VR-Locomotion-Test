@@ -32,7 +32,7 @@ public class ArmswingMoveProvider : MonoBehaviour
     [SerializeField] private InputActionProperty leftCancel;
     [SerializeField] private InputActionProperty rightCancel;
     
-    private Rigidbody _rigidbody;
+    //private Rigidbody _rigidbody;
 
 
     private void Start()
@@ -42,11 +42,11 @@ public class ArmswingMoveProvider : MonoBehaviour
         _positionPreviousFrameLeftHand = leftHand.transform.position;
         _positionPreviousFrameRightHand = rightHand.transform.position;
         
-        _rigidbody = GetComponent<Rigidbody>();
+        //_rigidbody = GetComponent<Rigidbody>();
         // Stop rigid body from falling over
-        _rigidbody.freezeRotation = true;
+        //_rigidbody.freezeRotation = true;
         // Set drag to stop sliding
-        _rigidbody.drag = 5;
+        //_rigidbody.drag = 5;
     }
     
     private void Update()
