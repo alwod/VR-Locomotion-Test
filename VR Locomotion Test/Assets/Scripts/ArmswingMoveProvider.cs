@@ -29,6 +29,9 @@ public class ArmswingMoveProvider : MonoBehaviour
     public InputActionProperty leftActivate;
     public InputActionProperty rightActivate;
     
+    [SerializeField] private InputActionProperty leftCancel;
+    [SerializeField] private InputActionProperty rightCancel;
+    
     private Rigidbody _rigidbody;
 
 
@@ -57,11 +60,11 @@ public class ArmswingMoveProvider : MonoBehaviour
         float leftHandSpeed = 0;
         float rightHandSpeed = 0;
         
-        if (leftActivate.action.ReadValue<float>() > 0.1f)
+        if (leftCancel.action.ReadValue<float>() == 0 && leftActivate.action.ReadValue<float>() > 0.1f)
         {
             leftHandSpeed = LeftHandSwing(playerDistanceMoved);
         }
-        if (rightActivate.action.ReadValue<float>() > 0.1f)
+        if (rightCancel.action.ReadValue<float>() == 0 && rightActivate.action.ReadValue<float>() > 0.1f)
         {
             rightHandSpeed = RightHandSwing(playerDistanceMoved);
         }
