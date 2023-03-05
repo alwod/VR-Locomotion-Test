@@ -6343,6 +6343,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: speedThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: leftJoystick.m_Reference
+      value: 
+      objectReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: rightJoystick.m_Reference
+      value: 
+      objectReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: leftJoystick.m_Action.m_Id
+      value: 136ea71b-185f-41d8-9121-ebfe2f1886cf
+      objectReference: {fileID: 0}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: leftJoystick.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: rightJoystick.m_Action.m_Id
+      value: c1fbb035-d5e1-4703-8118-785f210f2b08
+      objectReference: {fileID: 0}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: leftJoystick.m_Action.m_Name
+      value: Left Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: rightJoystick.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4679445136495515246, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: rightJoystick.m_Action.m_Name
+      value: Right Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856819597622443801, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856819597622443801, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856819597622443801, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4677427309404184917, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: m_InteractionManager
       value: 

@@ -1,26 +1,27 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayWalkingSoundEffect : MonoBehaviour
 {
-    private Vector3 _previousPlayerPosition;
-    
     private AudioSource _soundEffect;
+
+    [SerializeField] private InputActionProperty leftJoystick;
+    [SerializeField] private InputActionProperty rightJoystick;
+    
     private void Start()
     {
-        _previousPlayerPosition = transform.position;
         _soundEffect = GetComponent<AudioSource>();
     }
     
     private void Update()
     {
-        // Calculate speed of the player
-        var position = transform.position;
-        var speed = (position - _previousPlayerPosition).magnitude / Time.deltaTime;
-        _previousPlayerPosition = position;
-        // Dont bother storing minuscule speeds
-        if (speed > 1.0f)
+        if (leftJoystick.action.ReadValue<Vector2>() != Vector2.zero || rightJoystick.action.ReadValue<Vector2>() != Vector2.zero)
         {
-            _soundEffect.Play();
+            _soundEffect.enabled = true;
+        }
+        else
+        {
+            _soundEffect.enabled = false;
         }
     }
 }

@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
         _timeBetweenHits = new float[numberOfTargets];
         for (var i = 0; i < numberOfTargets; i++)
         {
-            _targetPool[i] = Instantiate(targetPrefab);
-            _targetPool[i].SetActive(false);
+            //_targetPool[i] = Instantiate(targetPrefab);
+            //_targetPool[i].SetActive(false);
 
             _timeBetweenHits[i] = 0.0f;
         }
