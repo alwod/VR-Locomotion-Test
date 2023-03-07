@@ -81,11 +81,12 @@ public class GameManager : MonoBehaviour
 
         _totalTime += Time.deltaTime;
         
-        CalculatePlayerSpeed();
+        //CalculatePlayerSpeed();
 
         if (_numberOfHitTargets == numberOfTargets)
         {
             Debug.Log("Hit all of the targets!");
+            EndTest();
             _numberOfHitTargets = 0;
         }
         
@@ -149,7 +150,7 @@ public class GameManager : MonoBehaviour
         textWriter.WriteLine(averageTime + ", " + 
                              _totalTime + ", " +
                              averageSpeed + ", " +
-                             _numberOfAccurateHits);
+                             ((_numberOfAccurateHits / _numberOfHitTargets) * 100));
         textWriter.Close();
     }
     
