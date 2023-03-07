@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class ActivateTeleportationRay : MonoBehaviour
 {
-    public GameObject leftTeleportation;
-    public GameObject rightTeleportation;
+    [SerializeField] private GameObject leftTeleportation;
+    [SerializeField] private GameObject rightTeleportation;
 
-    public InputActionProperty leftActivate;
-    public InputActionProperty rightActivate;
+    [SerializeField] private InputActionProperty leftActivate;
+    [SerializeField] private InputActionProperty rightActivate;
 
     [SerializeField] private InputActionProperty leftCancel;
     [SerializeField] private InputActionProperty rightCancel;
