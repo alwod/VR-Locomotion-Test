@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
         // Dont bother storing minuscule speeds
         if (speed > 1.0f)
         {
-            _movementSpeeds.Push(speed);
+            //_movementSpeeds.Push(speed);
         }
     }
 

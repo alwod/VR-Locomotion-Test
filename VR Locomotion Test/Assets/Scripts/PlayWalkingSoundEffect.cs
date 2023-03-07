@@ -29,17 +29,17 @@ public class PlayWalkingSoundEffect : MonoBehaviour
     {
         _soundEffect = GetComponent<AudioSource>();
         
-        if (gameObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled)
+        if (gameObject.GetComponent<ArmswingMoveProvider>().enabled)
         {
-            _locomotion = LocomotionType.Joystick;
+            _locomotion = LocomotionType.Armswing;
         }
         else if (gameObject.GetComponent<TeleportationProvider>().enabled)
         {
             _locomotion = LocomotionType.Teleport;
         }
-        else if (gameObject.GetComponent<ArmswingMoveProvider>().enabled)
+        else if (gameObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled)
         {
-            _locomotion = LocomotionType.Armswing;
+            _locomotion = LocomotionType.Joystick;
         }
     }
     
