@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     private Vector3 _previousPlayerPosition;
 
     // Target-related variables
-    [SerializeField] private GameObject targetPrefab;
-    private GameObject[] _targetPool;
+    //[SerializeField] private GameObject targetPrefab;
+    //private GameObject[] _targetPool;
     public int numberOfTargets;
     private int _numberOfHitTargets;
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         _totalTime = 0;
         _isStarted = false;
 
-        _targetPool = new GameObject[numberOfTargets];
+        //_targetPool = new GameObject[numberOfTargets];
         _timeBetweenHits = new float[numberOfTargets];
         for (var i = 0; i < numberOfTargets; i++)
         {
@@ -83,18 +83,13 @@ public class GameManager : MonoBehaviour
         
         //CalculatePlayerSpeed();
 
-        if (_numberOfHitTargets == numberOfTargets)
+        if (_numberOfHitTargets != numberOfTargets && !Input.GetKey(KeyCode.J))
         {
-            Debug.Log("Hit all of the targets!");
-            EndTest();
-            _numberOfHitTargets = 0;
+            return;
         }
         
-        // If the test is started and space is pressed, end the test
-        if (Input.GetKey(KeyCode.Space))
-        {
-            EndTest();
-        }
+        Debug.Log("Hit all of the targets!");
+        EndTest();
     }
 
     public void StartTest()
@@ -131,7 +126,7 @@ public class GameManager : MonoBehaviour
         // Dont bother storing minuscule speeds
         if (speed > 1.0f)
         {
-            //_movementSpeeds.Push(speed);
+            _movementSpeeds.Push(speed);
         }
     }
 
@@ -158,10 +153,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Test Ended!");
         _isStarted = false;
-        
+
         var averageTime = _timeBetweenHits.Sum() / _timeBetweenHits.Length;
         var averageSpeed = _movementSpeeds.Sum() / _movementSpeeds.Count;
-        
+
         StoreData(averageTime, averageSpeed);
         Debug.Log(averageTime);
         Debug.Log(_totalTime);
