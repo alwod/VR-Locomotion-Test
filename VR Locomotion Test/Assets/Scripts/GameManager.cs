@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         }
 
         _currentHitTime = _totalTime;
-        if (_currentHitTime - _previousHitTime <= 10.0f)
+        if (_currentHitTime - _previousHitTime <= 5.0f)
         {
             _timeBetweenHits[_numberOfHitTargets - 1] = _currentHitTime - _previousHitTime;
         }
