@@ -5,7 +5,7 @@ public class FireBulletOnActivate : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float fireSpeed = 20;
+    [SerializeField] private float fireSpeed = 10;
 
     private AudioSource _soundEffect;
     

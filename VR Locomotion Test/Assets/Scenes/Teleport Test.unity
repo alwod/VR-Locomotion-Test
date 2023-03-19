@@ -6219,7 +6219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4677427309890664659, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4677427310595532488, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: m_InteractionManager
@@ -6347,7 +6347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8443038235650648708, guid: cf0a82657387bf146b6ed64bcebae05d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8443038235650648714, guid: cf0a82657387bf146b6ed64bcebae05d, type: 3}
       propertyPath: m_RootOrder
@@ -6412,7 +6412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8601588567680234774, guid: 5729916948d06354b9f2ed8d664b8943, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8601588567680234775, guid: 5729916948d06354b9f2ed8d664b8943, type: 3}
       propertyPath: m_RootOrder

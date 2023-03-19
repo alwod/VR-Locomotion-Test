@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -37,7 +36,7 @@ public class PlayWalkingSoundEffect : MonoBehaviour
         {
             _locomotion = LocomotionType.Teleport;
         }
-        else if (gameObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled)
+        else if (gameObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled && !gameObject.GetComponent<ArmswingMoveProvider>().enabled)
         {
             _locomotion = LocomotionType.Joystick;
         }
@@ -49,21 +48,21 @@ public class PlayWalkingSoundEffect : MonoBehaviour
         {
             case LocomotionType.Joystick when leftJoystick.action.ReadValue<Vector2>() != Vector2.zero || rightJoystick.action.ReadValue<Vector2>() != Vector2.zero:
                 _soundEffect.enabled = true;
-                GameManager.instance.CalculatePlayerSpeed();
+                //GameManager.instance.CalculatePlayerSpeed();
                 break;
             case LocomotionType.Joystick:
                 _soundEffect.enabled = false;
                 break;
             case LocomotionType.Teleport when leftCancel.action.ReadValue<float>() == 0 && leftActivate.action.ReadValue<float>() > 0.1f || rightCancel.action.ReadValue<float>() == 0 && rightActivate.action.ReadValue<float>() > 0.1f:
                 _soundEffect.enabled = true;
-                GameManager.instance.CalculatePlayerSpeed();
+                //GameManager.instance.CalculatePlayerSpeed();
                 break;
             case LocomotionType.Teleport:
                 _soundEffect.enabled = false;
                 break;
             case LocomotionType.Armswing when leftCancel.action.ReadValue<float>() == 0 && leftActivate.action.ReadValue<float>() > 0.1f || rightCancel.action.ReadValue<float>() == 0 && rightActivate.action.ReadValue<float>() > 0.1f:
                 _soundEffect.enabled = true;
-                GameManager.instance.CalculatePlayerSpeed();
+                //GameManager.instance.CalculatePlayerSpeed();
                 break;
             case LocomotionType.Armswing:
                 _soundEffect.enabled = false;

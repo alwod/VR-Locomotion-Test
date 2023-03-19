@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Target-related variables
     //[SerializeField] private GameObject targetPrefab;
     //private GameObject[] _targetPool;
-    public int numberOfTargets;
+    [SerializeField] private int numberOfTargets;
     private int _numberOfHitTargets;
 
     private bool _isStarted;
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
         _totalTime = 0;
         _isStarted = false;
 
+        _movementSpeeds = new Stack<float>();
+
         //_targetPool = new GameObject[numberOfTargets];
         _timeBetweenHits = new float[numberOfTargets];
         for (var i = 0; i < numberOfTargets; i++)
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
         }
 
         _numberOfHitTargets = 0;
+        _numberOfAccurateHits = 0;
 
         _previousPlayerPosition = player.transform.position;
 
@@ -80,16 +84,14 @@ public class GameManager : MonoBehaviour
         }
 
         _totalTime += Time.deltaTime;
-        
-        //CalculatePlayerSpeed();
 
-        if (_numberOfHitTargets != numberOfTargets && !Input.GetKey(KeyCode.J))
+        CalculatePlayerSpeed();
+
+        if (_numberOfHitTargets == numberOfTargets || Input.GetKey(KeyCode.J))
         {
-            return;
+            Debug.Log("Hit all of the targets!");
+            EndTest();
         }
-        
-        Debug.Log("Hit all of the targets!");
-        EndTest();
     }
 
     public void StartTest()
@@ -114,7 +116,10 @@ public class GameManager : MonoBehaviour
         }
 
         _currentHitTime = _totalTime;
-        _timeBetweenHits[_numberOfHitTargets--] = _currentHitTime - _previousHitTime;
+        if (_currentHitTime - _previousHitTime <= 10.0f)
+        {
+            _timeBetweenHits[_numberOfHitTargets - 1] = _currentHitTime - _previousHitTime;
+        }
     }
 
     public void CalculatePlayerSpeed()
@@ -123,10 +128,10 @@ public class GameManager : MonoBehaviour
         var position = player.transform.position;
         var speed = (position - _previousPlayerPosition).magnitude / Time.deltaTime;
         _previousPlayerPosition = position;
-        // Dont bother storing minuscule speeds
-        if (speed > 1.0f)
+        _movementSpeeds.Push(speed);
+        if (speed > 0.01f)
         {
-            _movementSpeeds.Push(speed);
+            
         }
     }
 
@@ -141,11 +146,13 @@ public class GameManager : MonoBehaviour
         textWriter.Close();
         
         // Actual data
+        var percent = (double)_numberOfAccurateHits / (double)numberOfTargets;
+        percent *= 100.0;
         textWriter = new StreamWriter(_fileName, true);
         textWriter.WriteLine(averageTime + ", " + 
                              _totalTime + ", " +
                              averageSpeed + ", " +
-                             ((_numberOfAccurateHits / _numberOfHitTargets) * 100));
+                             percent);
         textWriter.Close();
     }
     
@@ -156,10 +163,9 @@ public class GameManager : MonoBehaviour
 
         var averageTime = _timeBetweenHits.Sum() / _timeBetweenHits.Length;
         var averageSpeed = _movementSpeeds.Sum() / _movementSpeeds.Count;
+        Debug.Log(_movementSpeeds.Count);
 
         StoreData(averageTime, averageSpeed);
-        Debug.Log(averageTime);
-        Debug.Log(_totalTime);
 
         SceneManager.LoadScene("StartScreen");
     }

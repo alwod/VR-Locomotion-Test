@@ -9,7 +9,9 @@ public class Target : MonoBehaviour
             return;
         }
         
-        transform.parent.gameObject.SetActive(false);
+        //transform.parent.gameObject.SetActive(false);
+        Destroy(other.gameObject);
+        Destroy(transform.parent.gameObject);
 
         // This should run if the red part of the target is hit, meaning it's an accurate hit
         if (transform.CompareTag("Bullseye"))

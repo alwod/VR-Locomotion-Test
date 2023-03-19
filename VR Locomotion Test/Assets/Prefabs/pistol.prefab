@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
   m_ThrowOnDetach: 1
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7946092931501168794, guid: 28f601107182ef240aea0d27f4d99db6, type: 3}
   spawnPoint: {fileID: 2661482651955754190}
-  fireSpeed: 20
+  fireSpeed: 15
 --- !u!82 &-7824399497066545049
 AudioSource:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5719343657908038176}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56e68d5b0df8db74fa71cd14b75df75c, type: 3}
   m_Name: 

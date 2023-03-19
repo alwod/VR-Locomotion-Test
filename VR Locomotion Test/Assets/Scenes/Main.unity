@@ -344,7 +344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1760596909}
-  targetPrefab: {fileID: 213178192364493857, guid: cde39bd9fee0def46b18de5ca8ca59c1, type: 3}
   numberOfTargets: 1
 --- !u!4 &667050518
 Transform:
@@ -1698,7 +1697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6494745357412530676, guid: 9b8270b7c69f8de4fad3486c605af146, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1191602
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 6494745357412530676, guid: 9b8270b7c69f8de4fad3486c605af146, type: 3}
       propertyPath: m_LocalRotation.w

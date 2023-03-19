@@ -18,6 +18,6 @@ public class MainMenu : MonoBehaviour
     public void PlayArmswinger()
     {
         Debug.Log("Playing with Armswinger!");
-        SceneManager.LoadScene("ArmSwinger Test");
+        SceneManager.LoadScene("Armswing Test");
     }
 }
