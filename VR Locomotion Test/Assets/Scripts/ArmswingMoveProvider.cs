@@ -26,8 +26,8 @@ public class ArmswingMoveProvider : MonoBehaviour
     private float _handSpeed;
     
     // Input actions to activate arm swinger
-    public InputActionProperty leftActivate;
-    public InputActionProperty rightActivate;
+    [SerializeField] private InputActionProperty leftActivate;
+    [SerializeField] private InputActionProperty rightActivate;
     
     [SerializeField] private InputActionProperty leftCancel;
     [SerializeField] private InputActionProperty rightCancel;

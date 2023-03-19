@@ -6107,7 +6107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4677427309890664647, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4677427309890664647, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: speedBoost
@@ -6168,6 +6168,10 @@ PrefabInstance:
     - target: {fileID: 4677427309890664652, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: m_MoveSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677427309890664652, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
+      propertyPath: m_LeftHandMoveAction.m_UseReference
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4677427309890664657, guid: c3411bdf11fa7fb47bb5dcd5c6b2ec0c, type: 3}
       propertyPath: m_RootOrder
